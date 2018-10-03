@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --job-name="JAGS42"
+#SBATCH --output="jags.%j.%N.out"
+#SBATCH --partition=compute
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=12
+#SBATCH --export=ALL
+#SBATCH -t 6:00:00
+#SBATCH -A TG-BIO170074
+
+
+Rscript --vanilla chain_convergence15.R > jags15chains.output
+
+wait
