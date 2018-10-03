@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --job-name="JAGS42"
+#SBATCH --output="jags.%j.%N.out"
+#SBATCH --partition=compute
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=3
+#SBATCH --export=ALL
+#SBATCH -t 48:00:00
+#SBATCH -A TG-BIO170074
+
+
+Rscript --vanilla 3_N_mixture_bundle_SS.R > jags3chainsNmix.output
+
+wait
